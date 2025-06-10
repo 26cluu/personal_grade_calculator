@@ -1,0 +1,87 @@
+<html>
+	{%block head%}
+    <head>
+    	<meta charset='utf-8'>
+        <title>{%block title%}main app{%endblock%}</title>
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+		<meta name="viewport" content="width=device-width, intial-scale=1.0">
+    </head>
+	{%endblock%}
+    <body>
+		<nav class="container">
+			<ul>
+				<li><a href='/'>Calc</a></li>
+				<li><a href='/add'>Add Assignment</a></li>
+			</ul>
+		</nav>
+		
+		<main class="container">
+			<header >
+				<h1>{% block h1 %}Grade calc{% endblock %}</h1>
+			</header>
+			
+			<form method="POST">
+				<label for="subject">Subject</label>
+				<select id="subject" name="subject" required>
+					<option value="" selected>Select a subject…</option>
+					<option>Spanish</option>
+					<option>Physics</option>
+					<option>Math</option>
+					<option>Scripture</option>
+					<option>History</option>
+					<option>English</option>
+				</select>
+
+				<fieldset>
+					<legend>Assignment Type</legend>
+					<label for="summative">
+						<input type="radio" id="summative" name="assignment_type" value="s">
+						Summative
+					</label>
+					<label for="formative">
+						<input type="radio" id="formative" name="assignment_type" value="f">
+						Formative
+					</label>
+				</fieldset>
+
+				<!-- <fieldset>
+					<legend>Assignment Type</legend>
+					<label for="summative quiz">
+						<input type="radio" id="summative_quiz" name="assignment_type" value="s-q">
+						Summative Quiz
+					</label>
+					<label for="summative test">
+						<input type="radio" id="summative_test" name="assignment_type" value="s-t">
+						Summative Test
+					</label>
+					<label for="formative additional practice">
+						<input type="radio" id="formative_add_prac" name="assignment_type" value="f-ap">
+						Formative Additional Practice
+					</label>
+					<label for="formative participation / projects">
+						<input type="radio" id="formative_part_proj" name="assignment_type" value="f-pp">
+						Formative Participation/Projects
+					</label>
+				</fieldset> -->
+
+
+
+				<div class="grid">
+					<!-- Markup example 1: input is inside label -->
+					<label for="correct">
+						correct points
+						<input type="text" id="correct" name="correct" placeholder="correct points" required>
+					</label>
+				
+					<label for="total">
+						total points
+						<input type="text" id="total" name="total" placeholder="total points" required>
+					</label>
+					{% block name %}{% endblock %}
+				</div>
+
+				<button type="submit">submit</button>
+			</form>
+		</main>
+    </body>
+</html>
